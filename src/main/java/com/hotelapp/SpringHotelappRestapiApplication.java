@@ -1,4 +1,4 @@
-package com.hotelapp.rest.springhotelapprestapi;
+package com.hotelapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
