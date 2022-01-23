@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -23,10 +24,14 @@ public class Menu {
 	@GeneratedValue(generator = "menu_id", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "menu_id", sequenceName = "menu_id")
 	private Integer menuId;
+	
 	private String menuName;
 	private double price;
+	
 	@ManyToOne
+	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
+	
 	public Menu(String menuName, double price) {
 		super();
 		this.menuName = menuName;

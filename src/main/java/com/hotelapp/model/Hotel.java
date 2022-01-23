@@ -2,10 +2,14 @@ package com.hotelapp.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,13 +31,23 @@ public class Hotel {
 	@GeneratedValue(generator = "hotel_id", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "hotel_id", sequenceName = "hotel_id")
 	private Integer hotelId;
+	
 	private String hotelName;
-	@OneToOne
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="address_id")
 	private Address address;
-	@OneToMany
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="hotel_id")
 	private Set<Menu> menuList;
-	@ManyToMany
+	
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@JoinTable(name="hotel_delivery", 
+	joinColumns  = @JoinColumn(name = "hotel_id"),
+	inverseJoinColumns = @JoinColumn(name = "delivery_id"))
 	private Set<Delivery> delivery;
+	
 	@Override
 	public String toString() {
 		return "Hotel [hotelName=" + hotelName + ", address=" + address + ", menuList=" + menuList + ", delivery="
