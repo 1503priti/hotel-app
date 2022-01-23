@@ -28,8 +28,10 @@ public class Delivery {
 	private Integer deliveryId;
 	private String partnerName;
 	private double charges;
+	
 	@ManyToMany(mappedBy = "delivery")
 	private Set<Hotel> hotelList = new HashSet<Hotel>();
+	
 	public Delivery(String partnerName, double charges) {
 		super();
 		this.partnerName = partnerName;
@@ -38,6 +40,10 @@ public class Delivery {
 	@Override
 	public String toString() {
 		return "Delivery [partnerName=" + partnerName + ", charges=" + charges + "]";
+	}
+	public Delivery() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	

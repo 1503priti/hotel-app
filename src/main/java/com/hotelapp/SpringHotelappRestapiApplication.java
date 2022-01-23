@@ -13,6 +13,7 @@ import com.hotelapp.model.Address;
 import com.hotelapp.model.Delivery;
 import com.hotelapp.model.Hotel;
 import com.hotelapp.model.Menu;
+import com.hotelapp.service.DeliveryService;
 import com.hotelapp.service.HotelService;
 
 @SpringBootApplication
@@ -25,16 +26,18 @@ public class SpringHotelappRestapiApplication implements CommandLineRunner {
 	@Autowired
 	HotelService hotelService;
 	
+	@Autowired
+	DeliveryService deliveryService;
+	
 	@Override
 	public void run(String... args) throws Exception {
-		Address address = new Address("ABD Nagar","Banglore",56789,"KAR");
-		Menu menu1 = new Menu("Paratha", 120);
-		Menu menu2 = new Menu("Pizza", 130);
+		Address address = new Address("JP Nagar","Manglore",12345,"KAR");
+		Menu menu1 = new Menu("Cakes", 20);
+		Menu menu2 = new Menu("Burger", 20);
 		Set<Menu> menuList = new HashSet<>(Arrays.asList(menu1,menu2));
-		Delivery del1 = new Delivery("swiggy",120);
-		Delivery del2 = new Delivery("uber",130);
-		Set<Delivery> deliveryList = new HashSet<>(Arrays.asList(del1,del2));
-		Hotel hotel = new Hotel("A2B",address,menuList,deliveryList);
+		Delivery del1 = deliveryService.getDeliveryByPartner("uber");
+		Set<Delivery> deliveryList = new HashSet<>(Arrays.asList(del1));
+		Hotel hotel = new Hotel("The Cake World",address,menuList,deliveryList);
 		hotelService.addHotel(hotel);
 		
 	}

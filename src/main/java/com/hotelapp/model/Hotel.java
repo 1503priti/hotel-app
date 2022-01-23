@@ -42,7 +42,7 @@ public class Hotel {
 	@JoinColumn(name="hotel_id")
 	private Set<Menu> menuList;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable(name="hotel_delivery", 
 	joinColumns  = @JoinColumn(name = "hotel_id"),
 	inverseJoinColumns = @JoinColumn(name = "delivery_id"))

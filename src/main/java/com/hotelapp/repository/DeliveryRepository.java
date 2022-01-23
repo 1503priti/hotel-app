@@ -9,4 +9,9 @@ import com.hotelapp.model.Hotel;
 @Repository
 public interface DeliveryRepository extends JpaRepository<Delivery, Integer> {
 
+	// Derived quesries
+	// findBy/getBy/readBy
+	Delivery findByPartnerName(String partnerName);
+		
+	
 }
