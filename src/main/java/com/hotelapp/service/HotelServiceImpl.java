@@ -62,8 +62,7 @@ public class HotelServiceImpl implements HotelService{
 
 	@Override
 	public List<Hotel> getHotelsByLocationAndMenu(String location, String menuName) {
-		// TODO Auto-generated method stub
-		return null;
+		return hotelRepository.getHotelsByLocationAndMenu(location, menuName);
 	}
 
 }
