@@ -32,6 +32,7 @@ public class Menu {
 	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
 	
+
 	public Menu(String menuName, double price) {
 		super();
 		this.menuName = menuName;

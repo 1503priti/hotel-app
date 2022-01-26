@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-//@AllArgsConstructor because of hotel id generate automatically
+@AllArgsConstructor 
 public class Hotel {
 	
 	@Id
@@ -53,6 +53,8 @@ public class Hotel {
 		return "Hotel [hotelName=" + hotelName + ", address=" + address + ", menuList=" + menuList + ", delivery="
 				+ delivery + "]";
 	}
+	
+
 	public Hotel(String hotelName, Address address, Set<Menu> menuList, Set<Delivery> delivery) {
 		super();
 		this.hotelName = hotelName;

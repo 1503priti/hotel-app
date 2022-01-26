@@ -19,7 +19,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Delivery {
 
 	@Id
@@ -40,10 +39,6 @@ public class Delivery {
 	@Override
 	public String toString() {
 		return "Delivery [partnerName=" + partnerName + ", charges=" + charges + "]";
-	}
-	public Delivery() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	
