@@ -17,7 +17,8 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public List<Menu> getMenusByHotel(String hotelName) {
 
-		return menuRepository.findByHotelHotelName(hotelName);
+		//return menuRepository.findByHotelHotelName(hotelName);
+		return menuRepository.findByHotel(hotelName);
 	}
 
 }
