@@ -15,6 +15,7 @@ import com.hotelapp.model.Hotel;
 import com.hotelapp.model.Menu;
 import com.hotelapp.service.DeliveryService;
 import com.hotelapp.service.HotelService;
+import com.hotelapp.service.MenuService;
 
 @SpringBootApplication
 public class SpringHotelappRestapiApplication implements CommandLineRunner {
@@ -28,6 +29,9 @@ public class SpringHotelappRestapiApplication implements CommandLineRunner {
 	
 	@Autowired
 	DeliveryService deliveryService;
+	
+	@Autowired
+	MenuService menuService;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -63,10 +67,14 @@ public class SpringHotelappRestapiApplication implements CommandLineRunner {
 		.stream()
 		.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));*/
 		
-		hotelService.getHotelsByLocationAndMenu("JP Nagar", "Idli")
-		.stream()
-		.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getCity()));
-	
+		/*
+		 * hotelService.getHotelsByLocationAndMenu("JP Nagar", "Idli") .stream()
+		 * .forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getCity(
+		 * )));
+		 */
+		menuService.getMenusByHotel("A2B")
+		.forEach((m)->System.out.println(m.getMenuName()+" "+m.getPrice()));
+		
 	}
 
 }
