@@ -53,7 +53,7 @@ public class SpringHotelappRestapiApplication implements CommandLineRunner {
 		 * .forEach((h)-> System.out.println(h.getHotelName()+h.getMenuList()));
 		 * 
 		 */
-		hotelService.getHotelsByMenu("Idli")
+		/*hotelService.getHotelsByMenu("Idli")
 		.stream()
 		.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));
 		
@@ -61,7 +61,11 @@ public class SpringHotelappRestapiApplication implements CommandLineRunner {
 	     
 		hotelService.getHotelsByDelivery("swiggy")
 		.stream()
-		.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));
+		.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));*/
+		
+		hotelService.getHotelsByLocationAndMenu("JP Nagar", "Idli")
+		.stream()
+		.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getCity()));
 	
 	}
 
