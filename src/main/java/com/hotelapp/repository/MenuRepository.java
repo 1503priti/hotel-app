@@ -16,9 +16,11 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
 	//List<Menu> findByHotelHotelName(String hotelName);
 
 	// @Query with JPQL
-	@Query("FROM Menu m INNER JOIN m.hotel WHERE h.hotelName=?1")
-	List<Menu> findByHotel(String hotelName);
+	//@Query("FROM Menu m INNER JOIN m.hotel h WHERE h.hotelName=?1")
+	//List<Menu> findByHotel(String hotelName);
 
 	// @Query with SQL native Query
+	@Query(value ="select * from menu m inner join hotel h on m.hotel_id=h.hotel_id where h.hotel_name=?1" , nativeQuery = true)
+	List<Menu> findByHotel(String hotelName);
 
 }
