@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,12 @@ public class HotelController {
 		return ResponseEntity.ok().headers(header).body(newhotel); //eithr create ResponseEntity instance or call the static methods
 	}
 
+	@PutMapping("/hotels")
+	public ResponseEntity<String> updateHotel(@RequestBody Hotel hotel){
+		hotelService.updateHotel(hotel);
+		//return ResponseEntity.ok().body("updated");
+		return ResponseEntity.ok("updated");
+	}
 	/*
 	 * void updateHotel(Hotel hotel);
 	 * 
