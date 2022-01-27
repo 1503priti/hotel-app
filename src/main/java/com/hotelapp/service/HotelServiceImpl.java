@@ -17,8 +17,8 @@ public class HotelServiceImpl implements HotelService{
 	
 	
 	@Override
-	public void addHotel(Hotel hotel) {
-		hotelRepository.save(hotel);
+	public Hotel addHotel(Hotel hotel) {
+		return hotelRepository.save(hotel);
 	}
 
 	@Override

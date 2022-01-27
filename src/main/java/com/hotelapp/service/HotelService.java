@@ -6,7 +6,7 @@ import com.hotelapp.model.Hotel;
 
 public interface HotelService {
 
-	void addHotel(Hotel hotel);
+	Hotel addHotel(Hotel hotel);
 
 	void updateHotel(Hotel hotel);
 
