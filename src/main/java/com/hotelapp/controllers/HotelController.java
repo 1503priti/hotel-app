@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,6 +48,14 @@ public class HotelController {
 		return ResponseEntity.ok().headers(header).body(hotel); //eithr create ResponseEntity instance or call the static methods
 	
 	}
+	
+	@DeleteMapping("hotels/hotel-by-id/{hotelId}")
+	public ResponseEntity<Void> deleteHotel(@PathVariable int hotelId) {
+	    hotelService.deleteHotel(hotelId);
+		return ResponseEntity.ok().build();
+		
+	}
+	
 	/*
 	 * void updateHotel(Hotel hotel);
 	 * 
